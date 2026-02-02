@@ -1,38 +1,216 @@
-.App {
+body, h1, h3, p, a {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+}
+
+.hero {
+    height: 100vh; 
+    /* background-image: url("background.jpg"); */
+    background-color: #eb9114;
+    background-size: cover;
+    background-position: center;
+}
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background-color: #4d2f05;
+    color: white;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo h1 {
+    font-size: 24px;
+}
+
+#navbar {
+    display: flex;
+    gap: 40px;
+}
+
+#navbar a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+#navbar a:hover {
+    color: #ffd700;
+}
+
+.categories-container {
+  padding: 40px 20px;
+  max-width: 100%;
+  margin: 0 auto;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.categories-container h1 {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  color: #4d2f05;
+  font-family: 'Poppins', sans-serif;
+  position: relative;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+
+.category-row {
+  display: flex;
+  align-items: center;
+  margin: 40px auto;
+  max-width: 1500px; 
+  width: 80%;
+}
+
+.category-row:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+.circle-img-wrapper {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 6px solid #fff;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+  flex-shrink: 0;
+}
+
+.circle-img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.content-card {
+  background: white;
+  padding: 30px 70px;
+  border-radius: 100px; 
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+  z-index: 1;
+  flex-grow: 1;
+  text-align: center;
+}
+
+.category-row:nth-child(odd) .content-card {
+  margin-left: -60px;
+  padding-left: 80px;
+}
+
+.category-row:nth-child(even) .content-card {
+  margin-right: -60px;
+  padding-right: 80px;
+}
+
+.content-card h3 {
+  color: #4d2f05;
+  font-size: 1.8rem;
+  margin-bottom: 8px;
+}
+
+.content-card p {
+  color: #666;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .category-row, .category-row:nth-child(even) {
+    flex-direction: column; 
+    text-align: center;
+  }
+  .content-card {
+    margin: -40px 0 0 0 !important;
+    padding: 60px 20px 20px 20px !important;
   }
 }
+.side-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 260px;
+  height: 100%;
+  background: linear-gradient(180deg, #3b240b, #5a3414);
+  color: #fff8f0;
+  padding: 20px;
+  transform: translateX(-100%);
+  transition: transform 0.4s ease;
+  z-index: 1000;
+  overflow-y: auto;
+  box-shadow: 4px 0 15px rgba(0, 0, 0, 0.4);
+}
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.side-menu.open {
+  transform: translateX(0);
+}
+
+.close-btn {
+  background: #ff9800;
+  border: none;
+  color: white;
+  font-size: 16px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  float: right;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.close-btn:hover {
+  background: #e68900;
+}
+
+
+.menu-item {
+  margin-top: 20px;
+}
+
+.menu-item p {
+  cursor: pointer;
+  font-weight: bold;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255, 152, 0, 0.3);
+  color: #ffcc80; /* soft orange */
+  transition: 0.3s;
+}
+
+.menu-item p:hover {
+  color: #ffa726;
+  letter-spacing: 1px;
+}
+.dropdown {
+  margin-top: 10px;
+  padding-left: 10px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  gap: 8px;
 }
 
-.App-link {
-  color: #61dafb;
+.dropdown span {
+  font-size: 14px;
+  color: #ffe0b2;
+  cursor: pointer;
+  transition: all 0.2s ease;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.dropdown span:hover {
+  color: #ff9800;
+  transform: translateX(6px);
 }
