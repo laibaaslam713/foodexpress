@@ -52,7 +52,6 @@ function App() {
       />} 
     />
 
-    {/* BAKERY */}
     <Route path="/bakery" element={
       <CategoryDisplay 
         title={foodData.bakery.title} 
