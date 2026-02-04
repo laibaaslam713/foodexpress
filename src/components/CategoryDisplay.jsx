@@ -1,5 +1,6 @@
 import React from "react";
 import "./CategoryDisplay.css";
+import {FaWhatsapp } from "react-icons/fa";
 
 const CategoryDisplay = ({ title, items }) => {
   return (
@@ -12,7 +13,9 @@ const CategoryDisplay = ({ title, items }) => {
             <img src={item.img} alt={item.name} />
             <h3>{item.name}</h3>
             <p>{item.price}</p>
-            <button>Add to Cart</button>
+            <a href="https://wa.me/923121494114" target="_blank" rel="noopener noreferrer">
+      <button><FaWhatsapp className="icon" />Order on Whatsapp</button>
+    </a>
           </div>
         ))}
       </div>
