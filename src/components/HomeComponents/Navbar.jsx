@@ -32,7 +32,7 @@ const Navbar = () => {
           {menuOpen && (
             <div className="mega-menu" onMouseLeave={() => setMenuOpen(false)}>
               <div className="menu-column">
-                <img src={fastfood} />
+                <img src={fastfood} alt='fast food'/>
                 <h4>Fast Food</h4>
                 <Link to="/fastfood/burgers">Burgers</Link>
                 <Link to="/fastfood/pizza">Pizza</Link>
@@ -40,20 +40,20 @@ const Navbar = () => {
               </div>
 
               <div className="menu-column">
-                <img src={desifood} />
+                <img src={desifood} alt='desi food' />
                 <h4>Desi Food</h4>
                 <Link to="/desifood">View Items</Link>
               </div>
 
               <div className="menu-column">
-                <img src={sweetndrinks} />
+                <img src={sweetndrinks}  alt='sweet and drinks'/>
                 <h4>Sweets</h4>
                 <Link to="/sweets/desserts">Desserts</Link>
                 <Link to="/sweets/drinks">Drinks</Link>
               </div>
 
               <div className="menu-column">
-                <img src={bakery} />
+                <img src={bakery}  alt='bakery'/>
                 <h4>Bakery</h4>
                 <Link to="/bakery">View Items</Link>
               </div>
