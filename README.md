@@ -2,7 +2,7 @@
 
 Food Express is a responsive frontend food ordering website where users can browse food items and place orders directly through WhatsApp. The project focuses on clean UI design, interactive features, and smooth user experience.
 
-###🚀 Features
+### Features
 
 🏠 Attractive Homepage
 
@@ -14,7 +14,7 @@ Food Express is a responsive frontend food ordering website where users can brow
 
 📱 Fully responsive design for mobile and desktop
 
-###🛠️ Technologies Used
+### Technologies Used
 
 HTML
 
