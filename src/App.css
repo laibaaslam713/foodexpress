@@ -7,8 +7,11 @@
 
 body {
   font-family: 'Poppins', sans-serif;
-  background-color: #fdfaf6;
+  /* background-color: #fdfaf6; */
 }
+
+h1, h2, h3 { font-size: 1.5rem; }
+p { font-size: 1rem; line-height: 1.6; }
 
 .hero {
   min-height: 100vh;
@@ -116,6 +119,24 @@ header {
   padding-bottom: 4px;
 }
 
+.mobile-menu-btn {
+  display: none;
+}
+@media (max-width: 768px) {
+  .mobile-menu-btn {
+    display: block;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: white;
+    cursor: pointer;
+  }
+  
+  #navbar {
+    display: none;
+  }
+}
+
 .menu-column a {
   color: #000000 !important;
   font-size: 14px;
@@ -146,6 +167,27 @@ header {
   }
   .menu-column {
     min-width: 45%; 
+  }
+}
+
+@media (max-width: 768px) {
+  /* Buttons touch friendly */
+  button, .contact-btn, .whatsapp-btn, .order-btn {
+    padding: 15px 25px !important;
+    font-size: 1.1rem !important;
+    min-height: 50px;
+  }
+  
+  /* Cards full width */
+  .feature-box, .contact-card, .about-text {
+    margin: 10px !important;
+    width: calc(100% - 20px);
+  }
+  
+  /* Images responsive */
+  img {
+    max-width: 100%;
+    height: auto;
   }
 }
 
@@ -359,24 +401,39 @@ a:hover{
 }
 
 @media (max-width: 768px) {
-  .about-section {
-    padding: 40px 20px;
+  /* Padding kam karo */
+  .about-section, .contact-section {
+    padding: 40px 15px !important;
   }
   
-  .about-text {
-    padding: 30px 20px;
-    margin: 20px;
+  /* Text size mobile ke liye */
+  .about-text h2, .contact-header h2 {
+    font-size: 2rem !important;
   }
   
-  .about-text h2 {
-    font-size: 2.5rem;
+  .about-text p, .contact-header p {
+    font-size: 1rem !important;
+  }
+  .features, .contact-grid {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
   }
   
-  .about-text p {
-    font-size: 1.1rem;
+  /* Navbar mobile */
+  header {
+    padding: 15px 20px !important;
+  }
+  
+  #navbar {
+    display: none; /* Hide desktop menu on mobile */
   }
 }
 
+@media (min-width: 769px) {
+  .about-text {
+    padding: 50px 40px;
+  }
+}
  
 .contact-section {
   min-height: 100vh;
@@ -402,6 +459,7 @@ a:hover{
   margin: 0 auto;
   position: relative;
   z-index: 2;
+  padding: 0 15px;
 }
 
 .contact-header {
@@ -604,22 +662,4 @@ a:hover{
   box-shadow: 0 15px 40px rgba(255, 183, 3, 0.5);
 }
 
-@media (max-width: 768px) {
-  .contact-grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-  
-  .contact-card.featured {
-    grid-column: span 1;
-  }
-  
-  .form-row {
-    grid-template-columns: 1fr;
-  }
-  
-  .contact-form-wrapper {
-    padding: 30px 20px;
-    margin: 20px;
-  }
-}
+
