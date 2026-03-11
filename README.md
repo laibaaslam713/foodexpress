@@ -24,5 +24,5 @@ JavaScript
 
 React
 ### Deployment
-https://foodexpress-td2v-7w0mscmwz-laiba-aslams-projects-82178a37.vercel.app/
+https://foodexpress-um4q.vercel.app/
 
