@@ -10,12 +10,12 @@ const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
-  // Check screen size on resize
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 768);
       if (window.innerWidth > 768) {
         setIsMobileMenuOpen(false);
+        document.body.classList.remove('menu-open')
       }
     };
 
@@ -23,7 +23,6 @@ const Header = () => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  // Close mobile menu when clicking outside
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (isMobileMenuOpen && !event.target.closest('#navbar') && !event.target.closest('.mobile-menu-btn')) {
@@ -33,6 +32,18 @@ const Header = () => {
 
     document.addEventListener('click', handleClickOutside);
     return () => document.removeEventListener('click', handleClickOutside);
+  }, [isMobileMenuOpen]);
+
+   useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.classList.add('menu-open');
+    } else {
+      document.body.classList.remove('menu-open');
+    }
+
+    return () => {
+      document.body.classList.remove('menu-open');
+    };
   }, [isMobileMenuOpen]);
 
   const toggleMobileMenu = () => {
@@ -51,28 +62,26 @@ const Header = () => {
   };
 
   return (
-    <section className="hero">
+    <section className={`hero ${isMobileMenuOpen ? 'menu-open' : ''}`}>
       <header>
         <div className="logo">
           <h1>Food Express</h1>
         </div>
 
-        {/* Mobile Menu Button */}
         <button className="mobile-menu-btn" onClick={toggleMobileMenu}>
-          ☰
+          {isMobileMenuOpen ? '✕' : '☰'}
         </button>
 
-        {/* Navigation */}
         <div id="navbar" className={isMobileMenuOpen ? 'active' : ''}>
           <Link to="/" onClick={closeMobileMenu}>Home</Link>
 
           <div
             className="menu-wrapper"
             onMouseEnter={() => !isMobile && setMenuOpen(true)}
-            onMouseLeave={() => !isMobile && setMenuOpen(false)}
+            
           >
             <span 
-              className="menu-link" 
+              className={`menu-link ${menuOpen ? 'active' : ''}`} 
               onClick={handleMenuClick}
             >
               Menu
